@@ -138,6 +138,8 @@ p{margin:0;text-wrap:pretty}
 .sled .led{width:4px;height:4px}
 .sled span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sled:hover{color:var(--fg);box-shadow:inset 0 0 0 1px var(--accent)}
+.sled.empty{background:var(--steel);color:var(--muted);box-shadow:inset 0 0 0 1px #3a404b}
+.sled.empty:hover{color:var(--muted);box-shadow:inset 0 0 0 1px #3a404b}
 .rack-foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding:0 4px}
 .rack-foot .ok{color:var(--led-pwr)}
 
@@ -220,7 +222,7 @@ footer a{color:var(--fg-2)}
 
   <!-- ================= RACK ================= -->
   <aside class="rack-col" aria-label="Site navigation, drawn as a server rack">
-    <div class="rack-cap"><span>Rack <b>A1</b> · Naperville, IL</span><span>Front</span></div>
+    <div class="rack-cap"><span>Rack <b>A1</b> · Chicago</span><span>Front</span></div>
     <div class="rack">
       <nav class="units" id="rack">
 
@@ -241,8 +243,8 @@ footer a{color:var(--fg-2)}
         <a class="u u4 work" href="#work" data-sec="work">
           <span class="work-head">
             <span class="leds"><i class="led pwr"></i><i class="led act" style="--dur:.9s;--delay:.7s"></i><i class="led uid"></i></span>
-            <span class="tape">Work · 2014–now</span>
-            <span class="umeta">4U · 6 bays</span>
+            <span class="tape">Work</span>
+            <span class="umeta">4U · 5 bays</span>
           </span>
           <span class="sleds" aria-hidden="true">
             <span class="sled" data-jump="#uchicago"><i class="led pwr"></i><span>UChicago</span></span>
@@ -250,7 +252,7 @@ footer a{color:var(--fg-2)}
             <span class="sled" data-jump="#easytaxi"><i class="led pwr"></i><span>EasyTaxi</span></span>
             <span class="sled" data-jump="#nets"><i class="led pwr"></i><span>NETS</span></span>
             <span class="sled" data-jump="#plumgrid"><i class="led pwr"></i><span>PLUMgrid</span></span>
-            <span class="sled" data-jump="#magision"><i class="led pwr"></i><span>Magision</span></span>
+            <span class="sled empty" aria-hidden="true"><i class="led"></i><span>empty</span></span>
           </span>
         </a>
 
@@ -260,9 +262,10 @@ footer a{color:var(--fg-2)}
           <span class="umeta">2U · projects</span>
         </a>
 
-        <a class="u blank" href="#writing" data-sec="writing">
-          <span class="leds"><i class="led"></i><i class="led"></i><i class="led uid"></i></span>
-          <span class="tape">Reserved · writing</span>
+        <a class="u" href="#writing" data-sec="writing">
+          <span class="leds"><i class="led pwr"></i><i class="led act" style="--dur:2.6s;--delay:.9s"></i><i class="led uid"></i></span>
+          <span class="tape">Writing</span>
+          <span class="umeta">1U · 1 post</span>
         </a>
 
         <a class="u" href="#console" data-sec="console">
@@ -294,30 +297,30 @@ footer a{color:var(--fg-2)}
     <section id="about">
       <div class="eyebrow"><b>U40–U41</b><span>salman.local</span></div>
       <h1>I keep large computers running for scientists.</h1>
-      <p class="lede">Hi, I'm Salman. I lead platform engineering at the University of Chicago's Center for Translational Data Science: Linux, Kubernetes, GPU clusters, and the people who need them to work on a Monday morning. I live west of Chicago with my wife and two kids.</p>
+      <p class="lede">Hi, I'm Salman. I lead platform engineering at the University of Chicago's Center for Translational Data Science: Linux, Kubernetes, GPU clusters, and the people who need them to work on a Monday morning.</p>
       <div class="status mono" aria-label="Status">
-        <span>Uptime: <span id="uptime">12 years</span></span>
-        <span>Location: Naperville, IL</span>
-        <span>Load: 1 platform, 2 kids</span>
-        <span class="warn">Sleep: degraded (newborn)</span>
+        <span>All systems operational</span>
+        <span>Location: Chicago</span>
+        <span>Priority order: faith, family, health, work</span>
       </div>
       <div class="prose">
         <p>The rack on the left is this site's table of contents. Each unit is a part of my life, labelled the way I'd label real hardware. Click one and its locate light comes on, like pressing the identify button on a server so you can find it in a dark room.</p>
-        <p>What I actually do all day: own a production platform that serves controlled-access cancer-genomics data to researchers worldwide, run the Slurm cluster that crunches it, lead incident response when it breaks, and review the designs of the engineers who build on it. In the last two years, most of the interesting problems have been GPUs: turning hand-allocated machines into a shared Kubernetes AI platform with a self-hosted model gateway, inside a strict security boundary, without outside consultants.</p>
+        <p>What I actually do all day: I own and operate a production platform that provides researchers worldwide with secure access to controlled cancer-genomics data. That means keeping the infrastructure reliable, running the Slurm compute cluster behind it, leading incident response when things go wrong, and guiding the architecture and technical decisions of the engineering team.</p>
+        <p>Over the past two years, much of my work has shifted toward GPU infrastructure: taking a collection of manually allocated machines and building a shared, Kubernetes-based AI platform with a self-hosted model gateway, all within a tightly controlled security environment. We designed and built it in-house, without relying on outside consultants.</p>
       </div>
     </section>
 
     <section id="work">
-      <div class="eyebrow"><b>U34–U37</b><span>Work · six bays</span></div>
-      <h2>Twelve years of running other people's infrastructure.</h2>
+      <div class="eyebrow"><b>U34–U37</b><span>Work · five bays</span></div>
+      <h2>A career of running other people's infrastructure.</h2>
       <div class="jobs">
         <article class="job" id="uchicago">
           <div class="when">2020 – now</div>
           <div class="what">
             <h3>Principal Platform Engineer, leading the platform function</h3>
             <div class="where">University of Chicago · Center for Translational Data Science · Chicago, remote</div>
-            <p>Platform engineering for the NCI Genomic Data Commons, an eight-petabyte-plus cancer-genomics platform used by tens of thousands of researchers. I own architecture, releases, and incident command, and I lead the platform engineers day to day. Also under my name: a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, the observability stack, and the enterprise vendor contracts that come with all of that.</p>
-            <p>The proudest piece is the GPU cluster rebuild. Hand-allocated V100s became a zero-trust, FIPS-hardened Kubernetes AI platform spanning three GPU generations, with a self-hosted model gateway in front of it. I set the architecture and reviewed every design; the team built it. Then we gave every engineer a self-hosted coding assistant on top of it, with no data leaving the center.</p>
+            <p>Platform engineering for the NCI Genomic Data Commons, a controlled-access cancer-genomics platform used by researchers worldwide. I own architecture, releases, and incident command, and I lead the platform engineers day to day. Also under my name: a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, the observability stack, and the enterprise vendor contracts that come with all of that.</p>
+            <p>The proudest piece is the GPU cluster rebuild. Hand-allocated V100s and H100s became a zero-trust, FIPS-hardened Kubernetes AI platform with a self-hosted model gateway in front of it. I set the architecture and reviewed every design; the team built it. Then we gave every engineer a self-hosted coding assistant on top of it, with no data leaving the center.</p>
           </div>
         </article>
         <article class="job" id="motorola">
@@ -352,19 +355,11 @@ footer a{color:var(--fg-2)}
             <p>Ten OpenStack and SDN deployments across the US, Japan and Switzerland. Lead developer of the PLUMgrid Sandbox, a nested-virtualization playground on Red Hat OpenStack and AWS. Maintained the OpenStack-Ansible Neutron integration. Trained engineers at NASA and Rackspace in San Antonio.</p>
           </div>
         </article>
-        <article class="job" id="magision">
-          <div class="when">2014 – 2015</div>
-          <div class="what">
-            <h3>Co-founder</h3>
-            <div class="where">Magision · Lahore, Pakistan</div>
-            <p>3D holographic retail displays built on the Pepper's-ghost illusion, with Unity gesture control. Plan9 incubated; Startup Istanbul top 100; GIST semifinalist; TechJuice Pakistan Top 25 Under 25. The hardware worked. The market, less so. Good first lesson.</p>
-          </div>
-        </article>
       </div>
       <div class="edu">
-        <div><b>University of Chicago Booth School of Business</b><span>MBA, Dean's List, 2025. Done in the evenings while running the platform.</span></div>
-        <div><b>NUST, Islamabad</b><span>B.E. Electrical Engineering, 2014.</span></div>
-        <div><b>CompTIA</b><span>Subject matter expert for the DevOps+ and AutoOps+ certifications, 2026.</span></div>
+        <div><b>University of Chicago Booth School of Business</b><span>MBA, Honors.</span></div>
+        <div><b>NUST, Islamabad</b><span>B.E. Electrical Engineering.</span></div>
+        <div><b>CompTIA</b><span>Subject matter expert for the DevOps+ and AutoOps+ certifications.</span></div>
       </div>
     </section>
 
@@ -373,39 +368,43 @@ footer a{color:var(--fg-2)}
       <h2>The lab shelf.</h2>
       <div class="shelf">
         <div class="item">
-          <span class="tag">2026 · this site</span>
+          <span class="tag">Home lab · agents</span>
+          <h3>An agent that can browse and run commands, without the nightmare</h3>
+          <p>A self-hosted agent on the Mac mini that fetches pages, runs shell commands and talks to me over Discord. Every outbound request goes through a MITM Squid proxy that only allows GET and HEAD, with a short allowlist. The agent runs in a read-only container; any command outside its allowlist waits for my approval; model choice is tiered by task. Written up with the gaps that remain, because there are some.</p>
+          <a class="more" href="https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can">Read the write-up →</a>
+        </div>
+        <div class="item">
+          <span class="tag">Home lab · life OS</span>
+          <h3>A vault with a staff of agents</h3>
+          <p>One Obsidian vault holds the running context for every part of my life: work, family, health, faith. A coordinator agent and one agent per domain run as scheduled, headless Claude Code jobs on the always-on Mac mini, over a private Tailscale network. They produce a morning briefing from the calendar and inbox, prepare me for meetings, keep a to-do list honest, and write dated context notes so every session starts informed instead of from zero. Cheap tasks go to self-hosted models; the rest to frontier ones.</p>
+        </div>
+        <div class="item">
+          <span class="tag">PLUMgrid · sandbox</span>
+          <h3>A whole OpenStack cloud in an afternoon</h3>
+          <p>A full OpenStack-plus-SDN environment running inside nested virtualization on AWS, built so customers and partners could try the product in an afternoon instead of a procurement cycle. Later used to train engineers at NASA and Rackspace.</p>
+        </div>
+        <div class="item">
+          <span class="tag">This site</span>
           <h3>A server rack, in CSS</h3>
           <p>No framework, no build step, no tracking. The rack is HTML and CSS; the console is about sixty lines of JavaScript. Fonts are the only thing loaded from anywhere else.</p>
           <a class="more" href="https://github.com/SalSikandar/salmansikandar.com">Source on GitHub →</a>
-        </div>
-        <div class="item">
-          <span class="tag">Ongoing · home lab</span>
-          <h3>A Mac mini that never sleeps</h3>
-          <p>An always-on machine on a private Tailscale network, running self-hosted models and the small agents that keep my notes, calendar and to-do list honest. Most of my experiments start here.</p>
-        </div>
-        <div class="item">
-          <span class="tag">2016 · PLUMgrid</span>
-          <h3>PLUMgrid Sandbox</h3>
-          <p>A full OpenStack-plus-SDN environment running inside nested virtualization on AWS, so anyone could try the product in an afternoon instead of a procurement cycle.</p>
-        </div>
-        <div class="item">
-          <span class="tag">2017 · open source</span>
-          <h3>OpenStack apps with Libcloud</h3>
-          <p>Deploying applications onto OpenStack through Apache Libcloud, written while learning the API the hard way.</p>
-          <a class="more" href="https://github.com/SalSikandar/OpenStack_Apps">Repository →</a>
-        </div>
-        <div class="item">
-          <span class="tag">2014 · hardware</span>
-          <h3>Pepper's-ghost display</h3>
-          <p>A holographic product display for shop windows: a sheet of glass at 45 degrees, a bright screen, and a lot of calibration. Gesture control through Unity and a Kinect.</p>
         </div>
       </div>
     </section>
 
     <section id="writing">
-      <div class="eyebrow"><b>U30</b><span>Reserved · writing</span></div>
-      <h2>Nothing published yet.</h2>
-      <p class="lede">The unit is labelled so I have to fill it. First up: what it actually costs to serve an open-weight model per token on hardware you own, with the depreciation included.</p>
+      <div class="eyebrow"><b>U30</b><span>Writing</span></div>
+      <h2>One post so far.</h2>
+      <div class="jobs">
+        <article class="job">
+          <div class="when">Feb 2026</div>
+          <div class="what">
+            <h3><a href="https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can">Running an agent that can browse the web and execute commands sounds like a security nightmare. Here's how I made it not be.</a></h3>
+            <p>Zero trust by default, then open one permission at a time: a MITM proxy that only passes GET and HEAD, a read-only container, an approval flow for shell commands, tiered models. The gaps that remain are listed too.</p>
+          </div>
+        </article>
+      </div>
+      <p class="lede">Next on the shelf: what it actually costs to serve an open-weight model per token on hardware you own, with the depreciation included. More at <a href="https://salsikandar.substack.com/">salsikandar.substack.com</a>.</p>
     </section>
 
     <section id="console">
@@ -422,7 +421,7 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
           <input id="cmdin" type="text" spellcheck="false" aria-label="Console command">
         </form>
       </div>
-      <p class="hint">Try <code>uptime</code>, <code>ls</code>, <code>nvidia-smi</code>, or <code>cd work</code>.</p>
+      <p class="hint">Try <code>ls</code>, <code>nvidia-smi</code>, <code>cat writing</code>, or <code>cd work</code>.</p>
     </section>
 
     <section id="power">
@@ -430,8 +429,8 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
       <h2>Power.</h2>
       <div class="prose">
         <p>I'm Muslim. The day is built around five prayers, then a workout at eight, then everything else, in that order. It is the only scheduling system I have never had to re-architect.</p>
-        <p>I grew up in Pakistan, studied electrical engineering in Islamabad, and worked my way through Santa Clara, Dubai, Muscat and Lahore before landing in the Chicago suburbs in 2020. My wife and I have a daughter who is six and a son who is new. The MBA was done at night. The sleep deficit is being carried forward.</p>
-        <p>Things I believe about infrastructure, after twelve years: boring is a feature, the runbook is the product, and the on-call engineer at 3 a.m. is the real customer of every design decision.</p>
+        <p>I grew up in Pakistan, studied electrical engineering in Islamabad, and worked in Santa Clara, Dubai, Muscat and Lahore before settling near Chicago. Family comes right after faith, and before everything else on this page.</p>
+        <p>Things I believe about infrastructure: boring is a feature, the runbook is the product, and the on-call engineer at 3 a.m. is the real customer of every design decision.</p>
       </div>
     </section>
 
@@ -459,12 +458,7 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
   var $=function(s,c){return (c||document).querySelector(s)};
   var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 
-  /* uptime since the first job, June 2014 */
-  var start=new Date(2014,5,1), now=new Date();
-  var months=(now.getFullYear()-start.getFullYear())*12+(now.getMonth()-start.getMonth());
-  var y=Math.floor(months/12), m=months%12;
-  $('#uptime').textContent=y+' years'+(m?', '+m+' months':'');
-  $('#year').textContent=now.getFullYear();
+  $('#year').textContent=new Date().getFullYear();
 
   /* locate light follows the section in view */
   var units=$$('.u[data-sec]');
@@ -497,13 +491,13 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
   var cmds={
     help:function(){return 'help  whoami  uptime  ls  cd <dir>  cat <file>  nvidia-smi  clear  exit'},
     whoami:function(){return 'Salman Sikandar. Platform engineer, Chicago.'},
-    uptime:function(){return 'up '+$('#uptime').textContent+'; load average: 1 platform, 2 kids, 1 MBA (done)'},
+    uptime:function(){return 'up: long enough. load average: 1 platform, 1 rack, this site'},
     ls:function(){return 'about/  work/  projects/  writing/  power/  contact/'},
     cd:function(a){var id=(a||'about').replace(/\/$/,'');var t=document.getElementById(id);
       if(!t||t.tagName!=='SECTION')return 'cd: no such directory: '+a;
       t.scrollIntoView({behavior:'smooth',block:'start'});setActive(id);return ''},
     cat:function(a){
-      if(/^writing/.test(a||''))return '(empty)';
+      if(/^writing/.test(a||''))return '1 post: https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can';
       if(/motd/.test(a||''))return 'Boring is a feature. The runbook is the product.';
       return 'cat: '+(a||'')+': try cd instead'},
     'nvidia-smi':function(){return [
@@ -511,7 +505,7 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
       '| GPU  Name              Util   Memory          Temp   Pwr   |',
       '|  0   Salman (Human)    100%   full / full     warm   8am   |',
       '+------------------------------------------------------------+',
-      '| Processes: platform, two kids, prayer, workout, this site  |',
+      '| Processes: prayer, workout, platform, this site            |',
       '+------------------------------------------------------------+'].join('\n')},
     clear:function(){out.textContent='';return ''},
     exit:function(){return 'There is no exit. This is a website.'},
