@@ -295,7 +295,6 @@ footer a{color:var(--fg-2)}
       <div class="status mono" aria-label="Status">
         <span>All systems operational</span>
         <span>Location: Chicago</span>
-        <span>Priority order: faith, family, health, work</span>
       </div>
       <div class="prose">
         <p>What I actually do all day: I own and operate a production platform that provides researchers worldwide with secure access to controlled cancer-genomics data. That means keeping the infrastructure reliable, running the Slurm compute cluster behind it, leading incident response when things go wrong, and guiding the architecture and technical decisions of the engineering team.</p>
@@ -305,14 +304,14 @@ footer a{color:var(--fg-2)}
 
     <section id="work">
       <div class="eyebrow"><b>U34–U37</b><span>Work · five bays</span></div>
-      <h2>A career of running other people's infrastructure.</h2>
+      <h2>Building platforms. Leading the teams behind them.</h2>
       <div class="jobs">
         <article class="job" id="uchicago">
           <div class="when">2020 – now</div>
           <div class="what">
-            <h3>Principal Platform Engineer, leading the platform function</h3>
+            <h3>Principal Platform Engineer</h3>
             <div class="where">University of Chicago · Center for Translational Data Science · Chicago, remote</div>
-            <p>I lead platform engineering for the NCI Genomic Data Commons, a controlled-access cancer-genomics platform serving researchers worldwide. I own platform architecture, releases, and incident response, and lead the engineering team day to day. My responsibilities also include a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, observability, and enterprise vendor contracts.</p>
+            <p>I lead platform engineering for the NCI Genomic Data Commons, a cancer-genomics platform providing researchers worldwide with access to open and controlled-access data. I own platform architecture, releases, and incident response, and lead the engineering team day to day. My responsibilities also include a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, observability, and enterprise vendor contracts.</p>
             <p>One project I'm especially proud of is rebuilding our GPU infrastructure. We moved from manually allocated V100 and H100 GPUs to a shared, zero-trust, FIPS-hardened Kubernetes AI platform with a self-hosted model gateway. I defined the architecture and reviewed the designs; the team built the platform. We then made self-hosted coding assistants available to every engineer, with inference and code kept within the center's infrastructure.</p>
           </div>
         </article>
@@ -321,7 +320,8 @@ footer a{color:var(--fg-2)}
           <div class="what">
             <h3>Lead Pre-sales &amp; Systems Engineer</h3>
             <div class="where">Motorola Solutions · Muscat, Oman</div>
-            <p>Lead engineer on a $250M+ public-safety program for a key Middle East customer, and business development across the Gulf. Redesigned a national police operations-centre proposal from a default IBM stack to an open-source architecture at roughly a fifth of the cost. It was selected, came in $4M under budget, and I led the country-wide rollout: a 400-VM server farm, petabyte-scale storage, nationwide IP networks over MPLS and microwave, and the 9999 emergency telephony system.</p>
+            <p>Lead pre-sales engineer on a $250M+ public-safety program for a key Middle East customer, and business development across the Gulf.</p>
+            <p>Separately, I redesigned a multi-million-dollar national police operations-centre proposal, replacing the default end-to-end IBM stack with an open-source architecture at roughly a fifth of the cost. That design was selected over IBM, delivered $4M under its own budget, and I led its country-wide rollout: a 400-VM server farm, petabyte-scale storage, nationwide IP networks over MPLS and microwave, and the 9999 emergency telephony system.</p>
           </div>
         </article>
         <article class="job" id="easytaxi">
@@ -362,14 +362,14 @@ footer a{color:var(--fg-2)}
       <div class="shelf">
         <div class="item">
           <span class="tag">Home lab · agents</span>
-          <h3>An agent that can browse and run commands, without the nightmare</h3>
-          <p>A self-hosted agent on the Mac mini that fetches pages, runs shell commands and talks to me over Discord. Every outbound request goes through a MITM Squid proxy that only allows GET and HEAD, with a short allowlist. The agent runs in a read-only container; any command outside its allowlist waits for my approval; model choice is tiered by task. Written up with the gaps that remain, because there are some.</p>
+          <h3>A self-hosted agent with explicit permission boundaries</h3>
+          <p>A self-hosted agent that browses the web, runs approved commands, and talks to me over Discord. Network and command permissions are restricted by default. The write-up covers the architecture, tradeoffs, and remaining gaps.</p>
           <a class="more" href="https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can">Read the write-up →</a>
         </div>
         <div class="item">
           <span class="tag">Home lab · life OS</span>
           <h3>A vault with a staff of agents</h3>
-          <p>One Obsidian vault holds the running context for every part of my life: work, family, health, faith. A coordinator agent and one agent per domain run as scheduled, headless Claude Code jobs on the always-on Mac mini, over a private Tailscale network. They produce a morning briefing from the calendar and inbox, prepare me for meetings, keep a to-do list honest, and write dated context notes so every session starts informed instead of from zero. Cheap tasks go to self-hosted models; the rest to frontier ones.</p>
+          <p>Scheduled agents turn my calendar, inbox, and Obsidian notes into morning briefings, meeting preparation, and updated task lists. They run on an always-on Mac mini and preserve context between sessions, using self-hosted or frontier models according to the task.</p>
         </div>
         <div class="item">
           <span class="tag">PLUMgrid · sandbox</span>
@@ -387,13 +387,13 @@ footer a{color:var(--fg-2)}
 
     <section id="writing">
       <div class="eyebrow"><b>U30</b><span>Writing</span></div>
-      <h2>One post so far.</h2>
+      <h2>Notes from the lab.</h2>
       <div class="jobs">
         <article class="job">
           <div class="when">Feb 2026</div>
           <div class="what">
             <h3><a href="https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can">Running an agent that can browse the web and execute commands sounds like a security nightmare. Here's how I made it not be.</a></h3>
-            <p>Zero trust by default, then open one permission at a time: a MITM proxy that only passes GET and HEAD, a read-only container, an approval flow for shell commands, tiered models. The gaps that remain are listed too.</p>
+            <p>What you'll learn: how to start an agent from zero trust and open permissions one at a time, where an egress proxy and an approval gate belong, and which risks are still open once all of that is in place.</p>
           </div>
         </article>
       </div>
