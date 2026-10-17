@@ -472,29 +472,54 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
 
   /* console */
   var out=$('#out'), form=$('#cmd'), input=$('#cmdin');
+  var label=$('label[for="cmdin"]');
+  var cwd='~';
+  var SECTIONS=['about','work','projects','writing','console','contact'];
+  var POST='https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can';
+  function promptText(){return ':'+(cwd==='~'?'~':'~/'+cwd)+'$'}
+  function syncPrompt(){label.lastChild.nodeValue=promptText()}
+  function smi(){
+    var W=58;
+    function row(s){return '| '+s+new Array(Math.max(0,W-s.length)+1).join(' ')+' |'}
+    var bar='+'+new Array(W+3).join('-')+'+';
+    return [
+      bar,
+      row('GPU  Name              Util   Memory          Temp   Pwr'),
+      row(' 0   Salman (Human)    100%   full / full     warm   8am'),
+      bar,
+      row('Processes: workout, platform, this site'),
+      bar].join('\n');
+  }
   var cmds={
-    help:function(){return 'help  whoami  uptime  ls  cd <dir>  cat <file>  nvidia-smi  clear  exit'},
+    help:function(){return 'help  whoami  uptime  ls  cd <dir>  pwd  cat <file>  date  nvidia-smi  clear  exit'},
     whoami:function(){return 'Salman Sikandar. Platform engineer, Chicago.'},
     uptime:function(){return 'up: long enough. load average: 1 platform, 1 rack, this site'},
-    ls:function(){return 'about/  work/  projects/  writing/  contact/'},
-    cd:function(a){var id=(a||'about').replace(/\/$/,'');var t=document.getElementById(id);
-      if(!t||t.tagName!=='SECTION')return 'cd: no such directory: '+a;
-      t.scrollIntoView({behavior:'smooth',block:'start'});setActive(id);return ''},
+    ls:function(){return 'about/  work/  projects/  writing/  console/  contact/'},
+    cd:function(a){
+      var id=(a||'').replace(/\/+$/,'');
+      if(a==='/'||id===''||id==='~'||id==='..'){
+        cwd='~';syncPrompt();
+        var top=document.getElementById('about');
+        if(top)top.scrollIntoView({behavior:'smooth',block:'start'});
+        setActive('about');return '';
+      }
+      if(SECTIONS.indexOf(id)<0)return 'cd: no such directory: '+a;
+      cwd=id;syncPrompt();
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+      setActive(id);return '';
+    },
+    pwd:function(){return cwd==='~'?'/home/visitor':'/home/visitor/'+cwd},
     cat:function(a){
-      if(/^writing/.test(a||''))return '1 post: https://salsikandar.substack.com/p/running-an-openclaw-agent-that-can';
-      if(/motd/.test(a||''))return 'Boring is a feature. The runbook is the product.';
-      return 'cat: '+(a||'')+': try cd instead'},
-    'nvidia-smi':function(){return [
-      '+------------------------------------------------------------+',
-      '| GPU  Name              Util   Memory          Temp   Pwr   |',
-      '|  0   Salman (Human)    100%   full / full     warm   8am   |',
-      '+------------------------------------------------------------+',
-      '| Processes: prayer, workout, platform, this site            |',
-      '+------------------------------------------------------------+'].join('\n')},
+      a=a||'';
+      if(!a)return 'cat: missing file operand';
+      if(a==='writing'||a==='writing/')
+        return {html:'1 post: <a href="'+POST+'" target="_blank" rel="noopener">'+POST+'</a>'};
+      if(a==='motd'||a==='/etc/motd')return 'Boring is a feature. The runbook is the product.';
+      return 'cat: '+a+': No such file or directory'},
+    'nvidia-smi':smi,
     clear:function(){out.textContent='';return ''},
     exit:function(){return 'There is no exit. This is a website.'},
     sudo:function(){return 'visitor is not in the sudoers file. This incident will be reported to no one.'},
-    pwd:function(){return '/home/visitor'},
     date:function(){return new Date().toString()}
   };
   form.addEventListener('submit',function(e){
@@ -502,12 +527,17 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
     var line=input.value.trim();input.value='';
     var parts=line.split(/\s+/),c=parts[0],a=parts.slice(1).join(' ');
     var echo=document.createElement('div');
-    echo.innerHTML='<span class="ok">visitor@salman.local</span>:~$ ';
-    echo.appendChild(document.createTextNode(line));
+    echo.innerHTML='<span class="ok">visitor@salman.local</span>';
+    echo.appendChild(document.createTextNode(promptText()+' '+line));
     out.appendChild(echo);
     if(!c)return;
-    var res=cmds[c]?cmds[c](a):(c+': command not found. Try help.');
-    if(res){var r=document.createElement('div');r.textContent=res;out.appendChild(r)}
+    var res=Object.prototype.hasOwnProperty.call(cmds,c)?cmds[c](a):(c+': command not found. Try help.');
+    if(res){
+      var r=document.createElement('div');
+      if(typeof res==='object'&&res.html)r.innerHTML=res.html;
+      else r.textContent=res;
+      out.appendChild(r);
+    }
     out.scrollTop=out.scrollHeight;
   });
   $('#term').addEventListener('click',function(){input.focus()});
