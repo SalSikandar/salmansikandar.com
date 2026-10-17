@@ -6,10 +6,10 @@
 <!-- head:start -->
 <title>Salman Sikandar</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Salman Sikandar keeps large computers running for scientists. Platform engineering, Linux, Kubernetes, GPUs. Chicago.">
+<meta name="description" content="Salman Sikandar leads the infrastructure behind large-scale cancer research. Platform engineering, Kubernetes, GPU and AI infrastructure. Chicago.">
 <link rel="canonical" href="https://salmansikandar.com/">
 <meta property="og:title" content="Salman Sikandar">
-<meta property="og:description" content="I keep large computers running for scientists. Platform engineering, Linux, Kubernetes, GPUs. Chicago.">
+<meta property="og:description" content="I lead the infrastructure behind large-scale cancer research. Platform engineering, Kubernetes, GPU and AI infrastructure. Chicago.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -274,12 +274,6 @@ footer a{color:var(--fg-2)}
           <span class="umeta">1U · tty</span>
         </a>
 
-        <a class="u u2" href="#power" data-sec="power">
-          <span class="leds"><i class="led pwr"></i><i class="led pwr"></i><i class="led uid"></i></span>
-          <span class="tape">UPS · life</span>
-          <span class="umeta">2U · 100%</span>
-        </a>
-
         <a class="u" href="#contact" data-sec="contact">
           <span class="leds"><i class="led pwr"></i><i class="led act" style="--dur:1.4s;--delay:.5s"></i><i class="led uid"></i></span>
           <span class="tape">Uplink</span>
@@ -296,7 +290,7 @@ footer a{color:var(--fg-2)}
 
     <section id="about">
       <div class="eyebrow"><b>U40–U41</b><span>salman.local</span></div>
-      <h1>I keep large computers running for scientists.</h1>
+      <h1>I lead the infrastructure behind large-scale cancer research.</h1>
       <p class="lede">Hi, I'm Salman. I lead platform engineering at the University of Chicago's Center for Translational Data Science: Linux, Kubernetes, GPU clusters, and the people who need them to work on a Monday morning.</p>
       <div class="status mono" aria-label="Status">
         <span>All systems operational</span>
@@ -304,7 +298,6 @@ footer a{color:var(--fg-2)}
         <span>Priority order: faith, family, health, work</span>
       </div>
       <div class="prose">
-        <p>The rack on the left is this site's table of contents. Each unit is a part of my life, labelled the way I'd label real hardware. Click one and its locate light comes on, like pressing the identify button on a server so you can find it in a dark room.</p>
         <p>What I actually do all day: I own and operate a production platform that provides researchers worldwide with secure access to controlled cancer-genomics data. That means keeping the infrastructure reliable, running the Slurm compute cluster behind it, leading incident response when things go wrong, and guiding the architecture and technical decisions of the engineering team.</p>
         <p>Over the past two years, much of my work has shifted toward GPU infrastructure: taking a collection of manually allocated machines and building a shared, Kubernetes-based AI platform with a self-hosted model gateway, all within a tightly controlled security environment. We designed and built it in-house, without relying on outside consultants.</p>
       </div>
@@ -319,8 +312,8 @@ footer a{color:var(--fg-2)}
           <div class="what">
             <h3>Principal Platform Engineer, leading the platform function</h3>
             <div class="where">University of Chicago · Center for Translational Data Science · Chicago, remote</div>
-            <p>Platform engineering for the NCI Genomic Data Commons, a controlled-access cancer-genomics platform used by researchers worldwide. I own architecture, releases, and incident command, and I lead the platform engineers day to day. Also under my name: a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, the observability stack, and the enterprise vendor contracts that come with all of that.</p>
-            <p>The proudest piece is the GPU cluster rebuild. Hand-allocated V100s and H100s became a zero-trust, FIPS-hardened Kubernetes AI platform with a self-hosted model gateway in front of it. I set the architecture and reviewed every design; the team built it. Then we gave every engineer a self-hosted coding assistant on top of it, with no data leaving the center.</p>
+            <p>I lead platform engineering for the NCI Genomic Data Commons, a controlled-access cancer-genomics platform serving researchers worldwide. I own platform architecture, releases, and incident response, and lead the engineering team day to day. My responsibilities also include a Slurm cluster that bursts to AWS Spot, CI/CD across hundreds of repositories, observability, and enterprise vendor contracts.</p>
+            <p>One project I'm especially proud of is rebuilding our GPU infrastructure. We moved from manually allocated V100 and H100 GPUs to a shared, zero-trust, FIPS-hardened Kubernetes AI platform with a self-hosted model gateway. I defined the architecture and reviewed the designs; the team built the platform. We then made self-hosted coding assistants available to every engineer, with inference and code kept within the center's infrastructure.</p>
           </div>
         </article>
         <article class="job" id="motorola">
@@ -424,27 +417,18 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
       <p class="hint">Try <code>ls</code>, <code>nvidia-smi</code>, <code>cat writing</code>, or <code>cd work</code>.</p>
     </section>
 
-    <section id="power">
-      <div class="eyebrow"><b>U27–U28</b><span>UPS · what everything else runs on</span></div>
-      <h2>Power.</h2>
-      <div class="prose">
-        <p>I'm Muslim. The day is built around five prayers, then a workout at eight, then everything else, in that order. It is the only scheduling system I have never had to re-architect.</p>
-        <p>I grew up in Pakistan, studied electrical engineering in Islamabad, and worked in Santa Clara, Dubai, Muscat and Lahore before settling near Chicago. Family comes right after faith, and before everything else on this page.</p>
-        <p>Things I believe about infrastructure: boring is a feature, the runbook is the product, and the on-call engineer at 3 a.m. is the real customer of every design decision.</p>
-      </div>
-    </section>
 
     <section id="contact">
-      <div class="eyebrow"><b>U26</b><span>Uplink</span></div>
+      <div class="eyebrow"><b>U28</b><span>Uplink</span></div>
       <h2>Reach me.</h2>
       <div class="links">
         <div><span class="k">Email</span><a href="mailto:salsikandar@gmail.com">salsikandar@gmail.com</a></div>
         <div><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/salsikandar/">linkedin.com/in/salsikandar</a></div>
         <div><span class="k">GitHub</span><a href="https://github.com/SalSikandar">github.com/SalSikandar</a></div>
       </div>
-      <p class="prose">Happy to talk about platform and AI-infrastructure problems, especially the kind where the hardware is real and the users are impatient.</p>
+      <p class="prose">Always happy to talk about building reliable platforms and making AI infrastructure work in practice.</p>
       <footer>
-        <span>© <span id="year">2026</span> Salman Sikandar. Built by hand. No analytics, no cookies.</span>
+        <span>© <span id="year">2026</span> Salman Sikandar.</span>
         <span>The LEDs are not connected to anything. Yet.</span>
       </footer>
     </section>
@@ -492,7 +476,7 @@ Salman Sikandar. Platform engineer, Chicago. Type <span class="amber">help</span
     help:function(){return 'help  whoami  uptime  ls  cd <dir>  cat <file>  nvidia-smi  clear  exit'},
     whoami:function(){return 'Salman Sikandar. Platform engineer, Chicago.'},
     uptime:function(){return 'up: long enough. load average: 1 platform, 1 rack, this site'},
-    ls:function(){return 'about/  work/  projects/  writing/  power/  contact/'},
+    ls:function(){return 'about/  work/  projects/  writing/  contact/'},
     cd:function(a){var id=(a||'about').replace(/\/$/,'');var t=document.getElementById(id);
       if(!t||t.tagName!=='SECTION')return 'cd: no such directory: '+a;
       t.scrollIntoView({behavior:'smooth',block:'start'});setActive(id);return ''},
